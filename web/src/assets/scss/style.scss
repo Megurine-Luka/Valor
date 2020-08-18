@@ -1,0 +1,196 @@
+@import "./variables";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+html{
+    font-size: 13px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.2em;
+    background-color: #f1f1f1;
+    -webkit-font-smoothing:antialiased;
+}
+a{
+    color: #999;
+}
+//font
+.fw-500{
+    font-weight: 500;
+}
+.fw-700{
+    font-weight: bold;
+}
+// p
+p{
+    line-height: 1.5em;
+}
+//width height
+.w-100{
+    width: 100%;
+}
+.h-100{
+    height: 100%;
+}
+
+//flex
+.d-flex{
+    display: flex
+}
+.flex-column{
+    flex-direction: column;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-1{
+    flex: 1;
+}
+
+//对齐
+@each $var in (left,center,right) {
+    .text-#{$var}{
+        text-align: $var;
+    }
+}
+
+//color
+@each $colorKey,$color in $colors {
+    .text-#{$colorKey}{
+        color: $color;
+    }
+    .bg-#{$colorKey}{
+        background-color: $color;
+    }
+}
+
+// font-size
+@each $sizeKey,$size in $font-sizes {
+    .fs-#{$sizeKey}{
+        font-size: $size*$base-font-size;
+    }
+}
+
+
+//justify-content
+
+@each $key,$value in $flex-jc {
+    .jc-#{$key}{
+        justify-content: $value;
+    }
+}
+
+
+@each $key,$value in $flex-ai {
+    .ai-#{$key}{
+        align-items: $value;
+    }
+}
+
+//spacing
+
+@each $typeKey,$type in $spacing-types {
+    //.m-1{margin:1rem}
+    @each $sizeKey,$size in $spacing-sizes {
+        .#{$typeKey}-#{$sizeKey}{
+            #{$type}:$size*$spacing-base-size
+        }
+    } 
+    //.mx-1,my-1
+    @each $sizeKey,$size in $spacing-sizes {
+        .#{$typeKey}x-#{$sizeKey}{
+            #{$type}-left:$size*$spacing-base-size;
+            #{$type}-right:$size*$spacing-base-size
+        };
+        .#{$typeKey}y-#{$sizeKey}{
+            #{$type}-top:$size*$spacing-base-size;
+            #{$type}-bottom:$size*$spacing-base-size
+        }
+    } 
+    //.mt-1{margin-top:1rem}
+    @each $directionKey,$direction in $spacing-directions {
+        @each $sizeKey,$size in $spacing-sizes {
+            .#{$typeKey}#{$directionKey}-#{$sizeKey}{
+                #{$type}-#{$direction}:$size*$spacing-base-size
+            }
+        }
+    }
+}
+//border
+@each $dir in (left,top,bottom,right) {
+    .border-#{$dir}{
+        border-#{$dir}:1px solid $border-color
+    }
+}
+
+//btn
+.btn{ 
+    border: none;
+    border-radius: 3px;
+    -webkit-font-smoothing:antialiased;
+    font-size: map-get($map: $font-sizes, $key: md)*$base-font-size;
+    &.btn-lg{
+        border: 1px solid map-get($map: $colors, $key: "white-2");
+        background: map-get($map: $colors, $key: "white-1");
+        font-size: 1.2692rem;
+        padding:0.9rem 0;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i{
+            font-size: 1.9231rem;
+            color: map-get($map: $colors, $key: "primary");
+            margin-right: 12px;
+        }
+    }
+}
+//nav && active
+.nav{
+    display: flex;
+    .nav-item{
+        border-bottom: 3px solid transparent;
+        padding-bottom: 0.2308rem;
+        &.active{
+            color: map-get($map: $colors, $key: "primary");
+            border-bottom-color: map-get($map: $colors, $key: "primary");
+        }
+    }
+    &.nav-inverse{
+        .nav-item{
+            color: map-get($map: $colors, $key: "white");
+            &.active{
+                border-bottom-color: map-get($map: $colors, $key: "white");
+            }
+        }
+    }
+}
+//sprite
+.sprite{
+    background: url('../index.png') no-repeat 0 0;
+    // background-size: 28.8462rem;
+    display: inline-block;
+    &.sprite-coming{
+        background-position: 63.546% 15.517%;
+        width: 3.4615rem;
+        height: 3.0769rem;
+        transform: scale(0.8);
+    }
+    &.sprite-entry{
+        background-position: 38.577% 52.076%;
+        background-size: 375px 455px;
+        width: 10px;
+        height: 10px;
+        transform: scale(1.3);
+    }
+}
+//text overflow
+.text-ellipsis{
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

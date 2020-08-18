@@ -1,0 +1,68 @@
+//颜色
+$colors:(
+    "primary":#db9e3f,
+    "white":#fff,
+    "white-1":#fcfcfc,
+    "white-2":#eceef0,
+    "light":#f9f9f9,
+    "light-1":#d4d9de,
+    "info":#4b67af,
+    "blue":#4394e4,
+    "grey":#999,
+    "grey-1":#666,
+    "dark-1":#343440,
+    "dark-2":#333,
+    "dark":#222,
+    "black":#000,
+    "yellow-1":#7f5300,
+    "blue-1":#1f3695,
+    "red-1":#781a16,
+    "grey-2":#33332c,
+    //tag
+    "new":#1e96ab,
+    "notice":#f09a37,
+    "event":#ff3636,
+    "match":#4d9cff,
+);
+$border-color:map-get($map: $colors, $key: 'light-1');
+//font-size
+$base-font-size:1rem;
+$font-sizes:(
+    xxs:0.6154,
+    xs:0.7692,
+    sm:0.9231,
+    md:1,       //13
+    lg:1.0769,
+    big:1.1538, //15
+    xl:1.2308,
+    xll:1.4615,
+    xxl:1.5385
+    
+);
+
+//flex
+$flex-jc:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    between:space-between,
+    around:space-around,
+);
+$flex-ai:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    stretch:stretch,
+);
+//spacing
+$spacing-types:(m:margin,p:padding);
+$spacing-directions:(t:top,r:right,b:bottom,l:left);
+$spacing-base-size:1rem;
+$spacing-sizes:(
+    0:0,
+    1:0.25,
+    2:0.5,
+    3:1,
+    4:1.5,
+    5:3
+);
